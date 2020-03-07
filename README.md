@@ -14,14 +14,19 @@ React 블로그 만들기
 ```javascript
 create-react-app pensieve-frontend
 
+yarn start // 실행
+yarn build // 배포 파일 생성
+// yarn global add serve
+serve -s build // yarn build로 생성한 문서를 root(-s)로 배포하겠다
+
 yarn eject // Sass, Css 모듈설정 준비
 yarn add node-sass sass-loader classnames // 모듈설치
 
-yarn start // 실행
-yarn build // 배포 파일 생성
+yarn add react-router-dom redux redux-actions react-redux redux-pender immutable // 라우터와 리덕스 적용
 
-// yarn global add serve
-serve -s build // yarn build로 생성한 문서를 root(-s)로 배포하겠다
+
+
+
 
 ```
 
