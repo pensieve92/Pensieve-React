@@ -14,6 +14,9 @@ React 블로그 만들기
 ```javascript
 create-react-app pensieve-frontend
 
+yarn eject // Sass, Css 모듈설정 준비
+yarn add node-sass sass-loader classnames // 모듈설치
+
 yarn start // 실행
 yarn build // 배포 파일 생성
 
