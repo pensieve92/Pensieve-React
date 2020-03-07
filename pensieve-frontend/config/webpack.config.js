@@ -463,7 +463,7 @@ module.exports = function(webpackEnv) {
                   options: {
                     prependData: `@import 'utils';`,
                     sassOptions: {
-                      includePahts : [pahts.appSrc + '/styles'],
+                      includePahts : [paths.appSrc + '/styles'],
                       sourceMap: isEnvProduction && shouldUseSourceMap,
                     }
                   }
