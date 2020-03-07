@@ -11,7 +11,7 @@ React 블로그 만들기
 
 ### yarn 추가
 ```cmd
-yarn add 
+create-react-app pensieve-frontend
 
 ```
 
