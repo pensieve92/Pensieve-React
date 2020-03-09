@@ -28,7 +28,6 @@ yarn add redux-devtools-extension   // 리덕스 개발자 도구
 
 
 
-
 ```
 
 
