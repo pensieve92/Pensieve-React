@@ -24,6 +24,7 @@ yarn add node-sass sass-loader classnames // 모듈설치
 
 yarn add react-router-dom redux redux-actions react-redux redux-pender immutable // 라우터와 리덕스 적용
 
+yarn add redux-devtools-extension   // 리덕스 개발자 도구
 
 
 
