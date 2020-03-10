@@ -26,6 +26,8 @@ yarn add react-router-dom redux redux-actions react-redux redux-pender immutable
 
 yarn add redux-devtools-extension   // 리덕스 개발자 도구
 
+yarn global add generate-react-cli // 컴포넌트 생성 cli  
+// ( AppData\Local\Yarn\Data\global\node_modules\generate-react-cli src교체 )
 
 
 ```
