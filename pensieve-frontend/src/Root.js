@@ -4,7 +4,6 @@ import App from 'components/App.js';
 import { Provider } from 'react-redux';
 import configure from 'store/configure';
 
-
 const store = configure();
 
 const Root = () =>  {   
