@@ -29,6 +29,7 @@ yarn add redux-devtools-extension   // 리덕스 개발자 도구
 yarn global add generate-react-cli // 컴포넌트 생성 cli  
 // ( AppData\Local\Yarn\Data\global\node_modules\generate-react-cli src교체 )
 
+yarn add open-color include-media // 스타일링 모듈 추가
 
 ```
 
