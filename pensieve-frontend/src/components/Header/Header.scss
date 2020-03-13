@@ -1,3 +1,73 @@
 .Header {
-    
+    background: white;
+    .header-content {
+        height: 5rem;
+        // width: 1920px;
+        margin: 0 auto; // 가운데 정렬
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+        // 내부 아이템 세로 가운데 정렬
+        display: flex;
+        align-items: center;
+
+        // 반응형 레이아웃
+        @include media("<wide") {
+            width: 100%;
+        }
+
+        // @include media("<medium") {
+        //     padding-left: 1rem;
+        //     padding-right: 1rem;
+        // }
+
+        .brand {
+            // 로고
+            color: $oc-gray-7;
+            font-size: 1.5rem;
+            font-weight: 600;
+            
+            // 배치
+            display: flex;   
+            justify-content: center;            
+            align-items: center;         
+
+            .menu{      
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                background: $oc-gray-2;                
+
+                // 배치 
+                display: flex;                 
+                justify-content: center;                
+                align-items: center;
+
+                // 이미지 사이즈
+                .menu-icon {                                     
+                   width: 1.25rem;
+                }
+
+                // 로고 사이 공간
+                margin-right: 1rem;
+                @include media("<medium") {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .logo {
+                width: 1.5rem;
+            }
+        }
+
+        .right {
+            // 오른쪽 내용
+            margin-left: auto;
+
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: $oc-blue-2;
+        }
+    }
 }
