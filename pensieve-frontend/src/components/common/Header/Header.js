@@ -12,10 +12,10 @@ const Header = () => (
     <div className={cx('header-content')}>
       <div className={cx('brand')}>
         <div className={cx('menu')}>
-          <img className={cx('menu-icon')} src={menu} />
+          <img className={cx('menu-icon')} src={menu} alt="menu"/>
         </div>
         <div>
-          <img className={cx('logo')} src={logo}/>        
+          <img className={cx('logo')} src={logo} alt="logo"/>        
           <Link to="/">Pensieve</Link>        
         </div>        
       </div>

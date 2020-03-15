@@ -1,8 +1,11 @@
 .Header {
     background: white;
+    // width: 950px;
+    margin: 0 auto;
+
     .header-content {
         height: 5rem;
-        // width: 1920px;
+        width: 950px;
         margin: 0 auto; // 가운데 정렬
         padding-right: 1rem;
         padding-left: 1rem;
@@ -12,14 +15,13 @@
         align-items: center;
 
         // 반응형 레이아웃
-        @include media("<wide") {
+        // @include media("<wide") {
+        //     width: 100%;
+        // }
+
+        @include media("<half") {            
             width: 100%;
         }
-
-        // @include media("<medium") {
-        //     padding-left: 1rem;
-        //     padding-right: 1rem;
-        // }
 
         .brand {
             // 로고

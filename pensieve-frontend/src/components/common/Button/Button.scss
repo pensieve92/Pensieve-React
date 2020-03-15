@@ -1,0 +1,109 @@
+.Button {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+
+    font-size: 0.9rem;
+    
+    color: white;
+    cursor: pointer;
+    user-select: none; // 드래그 방지
+    display: inline-flex;
+
+    &.sm {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        padding-top: 0.125rem;
+        padding-bottom: 0.125rem;
+        font-weight: 300;
+        font-size: 0.75rem;
+    }
+
+    &.md {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        font-weight: 600;
+
+        font-size: 0.9rem;
+    }
+
+    &.neon {                
+        background: $oc-blue-7;
+        border-radius: 0.25rem;
+        // color: #fff !important;
+        // text-transform: uppercase;
+        // text-decoration: none;        
+        // padding: 20px;
+        // border-radius: 50px;
+        // display: inline-block;
+        // border: none;
+        // transition: all 0.4s ease 0s;
+        
+        &:hover {
+            text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+            transition: all 0.4s ease 0s;
+            background: $oc-blue-5;
+        }
+        &:active {
+            //background: $oc-blue-6;
+        }
+    }
+
+    &.default {
+        background: $oc-blue-6;
+        &:hover {
+            background: $oc-blue-5;
+        }
+        &:active {
+            background: $oc-blue-6;
+        }
+    }
+
+    &.gray {
+        background: $oc-gray-7;
+        &:hover {
+            background: $oc-gray-6;
+        }
+        &:active {
+            background: $oc-gray-7;
+        }
+    }
+
+    &.outline {
+        border: 2px solid white;
+        border-radius: 2px;
+        &:hover {
+            background: white;
+            color: $oc-blue-6;
+        }
+        &:active {
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid rgba(255, 255, 255, 0.85);
+        }
+    }
+
+    &:hover {
+        @include material-shadow(2, 0.5); // 마우스 커서가 있으면 그림자 생성        
+    }
+
+    &.disabled {
+        background: $oc-gray-4;
+        color: $oc-gray-6;
+        cursor: default;
+        &:hover, &:active {
+            box-shadow: none;
+            background: $oc-gray-4;
+        }
+    }
+
+    & + & {
+        margin-left: 0.5rem;
+    }
+
+}

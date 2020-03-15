@@ -1,0 +1,23 @@
+.BoardWrapper {
+    width: 950px;
+    margin: 0 auto;
+    min-height:inherit;    
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    background: $oc-blue-1;
+
+    // @include media ("<wide") {
+    //     width: 768px
+    // }
+    // @include media ("<large") {
+    //     width: 512px;
+    // }
+    @include media ("<medium") {
+        width: 100%;
+    }
+    
+}

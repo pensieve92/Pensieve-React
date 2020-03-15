@@ -1,0 +1,18 @@
+.BoardHeader {    
+    height: 20rem;
+    display: flex; 
+
+    background: white;
+
+    .calendar {
+        flex: 2;
+        background: $oc-gray-1;
+    }
+
+    .todoList {
+        flex: 1;
+        background: $oc-green-1;
+    }
+
+     
+}

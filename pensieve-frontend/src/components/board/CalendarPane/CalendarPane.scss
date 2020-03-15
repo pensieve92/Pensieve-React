@@ -1,0 +1,187 @@
+.CalendarPane {
+    width: 16rem;
+
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+    padding-top: 0.75rem;
+
+    background: white;
+
+    .calendarPane-header {
+        display: flex;
+        // justify-content: center;        
+        align-content: center;
+        align-items: center;
+
+        // margin: 0 auto;        
+
+        .main{            
+            display: flex;
+            // justify-content: center;
+            // align-content: center;
+            align-content: center;
+            align-items: center;
+
+            .title {                              
+                padding-left: 0.5rem;                
+                color: $oc-gray-7;
+                font-weight: 800;
+            }   
+            .dropSelectDate {
+                // text-justify: center;
+                // text-align: center;
+                // margin: 0 auto;                
+
+                margin-left: 0.125rem;
+                margin-right: 0.5rem;
+                padding-top: 0.125rem;
+                
+                font-size: 0.75rem;
+                color: $oc-gray-6;
+                font-weight: 600;             
+
+                &:hover {
+                    color: $oc-gray-7;
+                    cursor: pointer;
+                }
+            }  
+        }    
+        .today {
+            display: flex;            
+            align-items: center;         
+            margin-left: auto;
+        }        
+    }
+
+    .directSelct{       
+        display: none; 
+
+        position: absolute;
+        border: 1px solid $oc-gray-5;
+        background: white;
+        width: 9rem;
+        height: 8.5rem;
+        z-index: 20; 
+        margin-top: 0.25rem;
+
+        .directSelct-header {
+            display: flex;            
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding-left: 1rem;
+            padding-right: 0.5rem;
+
+            height: 1.25rem;
+
+            align-items: center;
+            color: $oc-gray-7;
+
+            .close {
+                text-align: center;
+                margin-left: auto;
+                font-size: 1rem;
+                font-weight: 900;
+                cursor: pointer;               
+                color: $oc-gray-6;
+                // display: flex; 
+                // align-items: center;
+            }
+        }
+
+        .directSelct-body {
+            display: flex;
+            font-size: 0.7rem;
+            color: $oc-gray-7;
+            font-weight: 300;
+            text-decoration: none;
+
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            padding-bottom: 0.25rem;
+            padding-top: 0.25rem;
+
+
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style-type: none;
+                    &:hover{
+                        background: $oc-gray-3;
+                    }                    
+                }
+            }
+            .selectYear {
+                overflow-x: hidden;
+                overflow-y: scroll;
+                width: 5rem;
+                height: 6.5rem;
+                margin: 0 7px 0 1px;
+                //padding-top: 1px;
+                //margin-top: 1px;    
+            }
+            .selectMonth {
+                overflow-x: hidden;
+                overflow-y: scroll;
+                width: 4rem;
+                height: 6.5rem;
+                padding-top: 1px;
+                margin-top: 1px;                
+            }
+
+        }
+
+        
+    }
+    .calendarPane-body {    
+
+        background: white;
+        margin-top: 0.5rem;
+
+        // padding-right: 0.25rem;
+        // padding-left: 0.25rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+
+        font-size: 0.75rem;
+
+        .day {
+            background: $oc-gray-2;
+            
+        }
+        .day + .day {
+            margin-left: 0.25rem;
+        }
+
+        .textDay {
+            display: flex;
+            font-size: 0.75rem;
+            text-align: center;
+            .day {
+                background: $oc-gray-5;
+                color: $oc-gray-9;
+                width: 2rem;
+            }
+        }
+
+        .numDay {
+            display: flex;
+
+            margin-top: 0.25rem;
+            .day {
+                background: $oc-gray-1;
+                color: $oc-gray-7;
+                padding-left: 0.125rem;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+
+
+        
+        
+        
+    }
+}
