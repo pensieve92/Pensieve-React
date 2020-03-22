@@ -146,35 +146,38 @@
 
         font-size: 0.75rem;
 
-        .day {
+        .calendar-box {
             background: $oc-gray-2;
             
         }
-        .day + .day {
+        .calendar-box + .calendar-box {
             margin-left: 0.25rem;
         }
+    
 
-        .textDay {
+        .dayWrapper {
             display: flex;
             font-size: 0.75rem;
             text-align: center;
-            .day {
+            .calendar-box {
                 background: $oc-gray-5;
                 color: $oc-gray-9;
                 width: 2rem;
             }
         }
-
-        .numDay {
-            display: flex;
-
-            margin-top: 0.25rem;
-            .day {
-                background: $oc-gray-1;
-                color: $oc-gray-7;
-                padding-left: 0.125rem;
-                width: 2rem;
-                height: 2rem;
+        
+        .dateWrapper {
+            .weekWrapper {
+                display: flex;
+    
+                margin-top: 0.25rem;
+                .calendar-box {
+                    background: $oc-gray-1;
+                    color: $oc-gray-7;
+                    padding-left: 0.125rem;
+                    width: 2rem;
+                    height: 2rem;
+                }
             }
         }
 
