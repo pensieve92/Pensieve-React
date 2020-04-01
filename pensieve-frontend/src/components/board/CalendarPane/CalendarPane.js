@@ -10,29 +10,30 @@ const cx = classNames.bind(styles);
 
 class CalendarPane extends Component {
 
-  handleOpen = () => {    
+  initializeCalendar = () => {
+    this.setCalendar();
+  }
+
+  // 셀렉트 메뉴 열기
+  onOpen = () => {    
     const directSelct = document.getElementsByClassName('directSelct');
     for(var i=0; i< directSelct.length; i+=1){
       directSelct[i].style.display = 'block';
     }    
   }
-
-  handleCancel = () => {    
+  // 셀렉트 메뉴 닫기
+  onCancel = () => {    
     const directSelct = document.getElementsByClassName('directSelct');
     for(var i=0; i< directSelct.length; i+=1){
       directSelct[i].style.display = 'none';
     }    
   }
 
-  createCalendar = (thisMonth = moment().format('YYYYMM')) => { // null일 경우 오늘날짜를 default값으로 지정
+  // 캘린더 날짜 셋팅
+  setCalendar = (thisMonth = moment().format('YYYYMM')) => { // null일 경우 오늘날짜를 default값으로 지정
     const daysInMonth =  moment(thisMonth, "YYYYMM").daysInMonth(); // 해당 월의 일수 : 31
     const startDate = thisMonth + "01";             // date: 날짜(num)
-    // const startDate = "202004" + "01";             // date: 날짜(num)
-
     const startDay = parseInt(moment(startDate).format('e')); // day : 요일 [return 0 ~ 6 (String)]
-    // moment().format('e'); // 해당일의 첫번째 요일 (일요일: 0 ~ 토요일 : 6 )
-    // moment().format('ddd dddd'); // 해당일의 첫번째 요일
-    
     const boxsInMonth = daysInMonth + startDay; // 최소 박스수: 해당월의 일수 + 시작요일 
  
     // 배열만들기 1차원으로 만들기!! 
@@ -43,65 +44,65 @@ class CalendarPane extends Component {
       date++;
     }
 
-    // 캘린더 box 가져오기
-    // const calendarBox = document.getElementsByClassName('weekWrapper calendar-box');
-    const calendarBox = document.querySelectorAll('.weekWrapper .calendar-box');
+    // 전달의 일수
+    const daysInLastMonth =  moment(thisMonth, "YYYYMM").subtract(1, 'months').daysInMonth();       
 
-    // 앞쪽에 값이 undefined 일경우    
-    // startDay > 0 일경우 앞에 공백이 생긴다. :: 한 달전의 일수 를 구한다.!!
-    const daysInLastMonth =  moment(thisMonth, "YYYYMM").subtract(1, 'months').daysInMonth();    
-    // console.log( "지난달: " + moment(thisMonth, "YYYYMM").subtract(1, 'months').daysInMonth());
-    // startDay 가 1일경우 daysInLastMonth (0)
-    // startDay 가 2일경우 daysInLastMonth-1 (0), daysInLastMonth (1)
-    // (startDay > 0) ? daysInLastMonth - startDay + 1 ;
-
-    // 배열 업데이트 
+    // 전달 날짜 업데이트 
     if(startDay > 0) {
       for(let i = 0 ; i < startDay ; i ++){
         calendarArray = calendarArray.set(i, daysInLastMonth - startDay + 1 + i);
       }
     }
 
+    // 캘린더 box 가져오기    
+    const calendarBox = document.querySelectorAll('.weekWrapper .calendar-box');
+
     // 배열값을 박스 순서대로 입력하기
     calendarBox.forEach( 
             (box, index) => box.innerText = (index < boxsInMonth) ? calendarArray.get(index) : calendarArray.get(index - daysInMonth) );   
+
   }
 
-  handleNextMonth(event){
-    event.persist() // react에서 event를 제어하는데 이를 해제 하기위함
-    const title = document.querySelector('.main .title');
-    const nextMonth =  moment(title.dataset.thismonth, "YYYYMM").add(1, 'months').format('YYYYMM')
-
-    title.dataset.thismonth = nextMonth;
-  //   createCalendar(nextMonth); // 함수 어떻게 호출하지??
-  //  const {createCalendar} = this.props;
-  //  createCalendar(nextMonth)
-
-  //  this.createCalendar(nextMonth)
-
-    console.log("handleNextMonth");
+  // onLastMonth(e){} 화살표 함수가 아니라서 this.props 인식을 못함
+  // componentDidMount() 때문에 헷갈린것 같다 .....
+  handleNextMonth = (e) => {    
+    console.log("onNextMonth");
+    const { thisMonth, onNextMonth } = this.props;
+    // 임시로 현재 데이터 넣기
+    // const thisMonth = moment().format('YYYYMM');      
+    console.log("beforeThisMonth: ", thisMonth);  
+    onNextMonth(thisMonth); // state변경하기
+    console.log("afterThisMonth: ", thisMonth);
+    this.setCalendar(thisMonth); // 변경한 state에 맞게 달력만들기 // 안되네
   }
 
-  handleLastMonth(e){
-    console.log("handleLastMonth")
+  onLastMonth = (e) =>{
+    console.log("onLastMonth")
   }
 
   componentDidMount() {
-    this.createCalendar();
+    this.initializeCalendar();
   } 
 
+ 
   render(){
 
-    const { handleOpen, handleCancel, handleNextMonth, handleLastMonth } = this;
-    // createCalendar();
+    
+    // const { onNextMonth } = this.props; // 위에 화살표 함수로 수정함
+    // console.log(onNextMonth);
+    const {thisMonth} = this.props;
+    const { onOpen, onCancel, handleNextMonth, onLastMonth } = this;
+    const { formatMont } = moment(thisMonth).format('M');
+
+    
     return (
       <div className={cx('CalendarPane')} >    
     <div className={cx('calendarPane-header')}>
       <div className={cx('main')}>
-        <Button theme="neon" size="sm" onClick={handleLastMonth}> &nbsp; &lt; &nbsp; </Button>
-        <div className={cx('title')} data-thismonth={moment().format('YYYYMM')}>{moment().format('M')}</div>
-        <div className={cx('dropSelectDate')} onClick={handleOpen}>▼</div>
-        <Button theme="neon" size="sm" onClick={handleNextMonth}>&nbsp; &gt; &nbsp;</Button>        
+        <Button theme="neon" size="sm" onClick={onLastMonth}> &nbsp; &lt; &nbsp; </Button>
+    <div className={cx('title')}>{moment(thisMonth, 'YYYYMM').format('M')}</div> {/* moment().format('M') */}
+        <div className={cx('dropSelectDate')} onClick={onOpen}>▼</div>
+        <Button theme="neon" size="sm" onClick={() => handleNextMonth()}>&nbsp; &gt; &nbsp;</Button>        
       </div>
       <div className={cx('today')}>
         < Button theme="neon" size="sm">오늘</Button>                                                                                                                                                                                                                                                                                         
@@ -110,7 +111,7 @@ class CalendarPane extends Component {
     <div className={cx('directSelct')}>
       <div className={cx('directSelct-header')}>
         <div>직접입력</div>
-        <div className={cx('close')} onClick={handleCancel}>&times;</div>
+        <div className={cx('close')} onClick={onCancel}>&times;</div>
       </div>
       <div className={cx('directSelct-body')}>
         <div className={cx('selectYear')}>
