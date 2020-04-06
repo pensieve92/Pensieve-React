@@ -168,6 +168,12 @@
             font-size: 0.75rem;
             text-align: center;
             .calendar-box {
+                &:first-child{
+                    color: $oc-red-7;
+                }
+                &:last-child{
+                    color: $oc-indigo-7;
+                }
                 background: $oc-gray-5;
                 color: $oc-gray-9;
                 width: 2rem;
@@ -179,12 +185,22 @@
                 display: flex;
     
                 margin-top: 0.25rem;
-                .calendar-box {
+                .calendar-box {                    
                     background: $oc-gray-1;
                     color: $oc-gray-7;
                     padding-left: 0.125rem;
                     width: 2rem;
                     height: 2rem;
+
+                    &:first-child{
+                        color: $oc-red-7;
+                    }
+                    &:last-child{
+                        color: $oc-indigo-7;
+                    }
+                    &.grayed{
+                        color: $oc-gray-5;
+                    }
                 }
             }
         }
