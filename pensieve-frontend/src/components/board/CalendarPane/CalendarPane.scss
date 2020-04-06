@@ -104,13 +104,21 @@
             ul {
                 margin: 0;
                 padding: 0;
-
+                scroll-snap-type: y mandatory; // proximity, mandatory
                 li {
-                    list-style-type: none;
+                    list-style-type: none;                   
+                    scroll-snap-align: start; // 스크롤기준 start, end, center, none
                     &:hover{
                         background: $oc-gray-3;
+                    }
+                    &:active, &.active {
+                        background: $oc-gray-3;
+                        font-weight: 500;
+                        font: black;
                     }                    
                 }
+
+                
             }
             .selectYear {
                 overflow-x: hidden;
